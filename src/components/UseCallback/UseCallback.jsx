@@ -21,8 +21,6 @@ const UseCallbaclExample = () => {
                 Count: {count} {''}
                 <button onClick={increment}>+</button>
             </div>
-
-            <Link to='/'>Go back</Link>
         </>
     )
 }

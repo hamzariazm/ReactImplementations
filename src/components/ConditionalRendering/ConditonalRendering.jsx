@@ -10,7 +10,6 @@ const ConditionalRendering = () => {
             {!userLoggedIn &&
             <h1>Please Login</h1>
             }
-            <Link to="/">Go back</Link>
         </div>
     )
 }
