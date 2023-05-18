@@ -14,6 +14,7 @@ import UseMemoExample from '../components/UseMemo/UseMemoExample';
 import Home from '../components/Home/Home';
 import Navigationbar from '../components/Navbar/Navbar';
 import Counter from '../components/ReduxCounter/Counter';
+import ProtectedRoute from './ProtectedRoutes';
 
 const AppRoutes = () => {
     return(
@@ -33,7 +34,12 @@ const AppRoutes = () => {
                     <Route path='/usereducer' element={<UseReducerExample/>}></Route>
                     <Route path='/useref' element={<UseRefExample/>}></Route>
                     <Route path='/usestate' element={<UseStateExample/>}></Route>
-                    <Route path='/counter' element={<Counter/>}></Route>
+                    <Route path='/counter' element={
+                        <ProtectedRoute>
+                            <Counter/>
+                        </ProtectedRoute>
+                    }>
+                    </Route>
                 </Route>
             </Routes>
         </>

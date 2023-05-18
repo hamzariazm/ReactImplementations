@@ -1,10 +1,12 @@
 import { useState } from "react"
-import {Link} from "react-router-dom"
+import {useLocation, useNavigate} from "react-router-dom"
 
 const EventHandlers = () => {
 
     const [userName, setUserName] = useState();
     const userLoggedIn = localStorage.getItem("userName");
+    const navigate = useNavigate();
+    const {state} = useLocation();
 
     const handleChange = (e) => {
         setUserName(e.target.value);
@@ -12,15 +14,10 @@ const EventHandlers = () => {
     
     const Login = () => {
         localStorage.setItem("userName", userName)
-        window.location.reload();
-    }
-
-    const Logout = () => {
-        localStorage.removeItem("userName");
+        navigate(state?.from || '/')
         window.location.reload();
     }
     
-
     return(
         <div>     
             {!userLoggedIn &&
@@ -37,11 +34,12 @@ const EventHandlers = () => {
                 </button>
             </div>
             }
-
-            {userLoggedIn && 
-                <button onClick={Logout}>Logout</button>
+            {userLoggedIn &&
+                <div>
+                    User is Logged In
+                </div>
             }
-            <Link to="/conditionalrendering">View Conditional Rendering</Link>
+
         </div>
     )
 }

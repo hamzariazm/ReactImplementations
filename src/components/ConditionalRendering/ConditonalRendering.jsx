@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const ConditionalRendering = () => {
     const userLoggedIn = localStorage.getItem("userName");
     return(
